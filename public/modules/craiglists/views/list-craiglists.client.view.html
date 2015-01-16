@@ -1,0 +1,50 @@
+<section data-ng-controller="CraiglistsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Craiglists</h1>
+    </div>
+    <div>
+        <form class="form-horizontal" data-ng-submit="scrap()" novalidate>
+        <!--
+        <select ng-model="selected.cities">
+            <option value="{{city}}" data-ng-repeat="city in cities">{{city}}</option>
+        </select>
+        -->
+        <select class="form-control" data-ng-model="city">
+            <option value="">Select a City</option>
+            <option value="boston">boston</option>
+            <option value="capecod">cape cod / islands</option>
+            <option value="southcoast">south coast</option>
+            <option value="westernmass">western massachusetts</option>
+            <option value="worcester">worcester / central MA</option>
+            <option value="bakersfield">bakersfield</option>
+            <option value="chico">chico</option>
+            <option value="fresno">fresno / madera</option>
+            <option value="goldcountry">gold country</option>
+            <option value="hanford">hanford-corcoran</option>
+            <option value="humboldt">humboldt county</option>
+            <option value="imperial">imperial county</option>
+            <option value="inlandempire">inland empire</option>
+            <option value="losangeles">los angeles</option>
+            <option value="mendocino">mendocino county</option>
+            <option value="merced">merced</option>
+            <option value="modesto">modesto</option>
+            <option value="monterey">monterey bay</option>
+            <option value="orangecounty">orange county</option>
+        </select>
+        <br />
+        <input type="text" id="q" data-ng-model="search" placeholder="Search" class="form-control">
+        <br /><button>Search</button>
+        </form>
+        <br /><br />
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="craiglist in craiglists" data-ng-href="{{craiglist.url}}" class="list-group-item" target="_blank">
+			<h4 class="list-group-item-heading" data-ng-bind="craiglist.title"></h4>
+            <small>
+                City: {{craiglist.city}} &bull; {{craiglist.location}} &bull; 
+                {{craiglist.date}} &bull; {{craiglist.category}}<br />
+                {{craiglist.url}}
+            </small>    
+        </a>
+    </div>
+</section>

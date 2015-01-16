@@ -1,0 +1,19 @@
+<section data-ng-controller="TwittersController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Twitters</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="twitter in twitters" data-ng-href="#!/twitters/{{twitter._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="twitter.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="twitter.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="twitter.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!twitters.$resolved || twitters.length">
+    	No Twitters yet, why don't you <a href="/#!/twitters/create">create one</a>?
+    </div>
+</section>

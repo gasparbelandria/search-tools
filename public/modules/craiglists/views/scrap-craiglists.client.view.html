@@ -1,0 +1,30 @@
+<section data-ng-controller="CraiglistsController" data-ng-init="scrap()">
+    <div class="page-header">
+        <h1>Scraping Craiglists</h1>
+    </div>
+
+<!--     <div>
+        
+        City
+        <select ng-model="selected.cities" class="form-control">
+            <option value="{{city}}" data-ng-repeat="city in cities">{{city}}</option>
+        </select>
+        <br /><br />
+        
+        <input type="text" id="query" ng-model="query" class="form-control" placeholder="Search">
+        <br />
+    </div> -->
+    {{error}}
+    <div class="list-group">
+        <a data-ng-repeat="craiglist in craiglists | filter:query track by $index" data-ng-href="{{craiglist.url}}" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="craiglist.title"></h4>
+            <small>
+                {{craiglist.date}} &bull; {{craiglist.location}} 
+            </small>    
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!craiglists.$resolved || craiglists.length">
+    	No Craiglists yet, select a City and type a query.
+    </div>
+
+</section>

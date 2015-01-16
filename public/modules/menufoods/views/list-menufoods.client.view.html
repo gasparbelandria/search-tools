@@ -1,0 +1,14 @@
+<section data-ng-controller="MenufoodsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Menus</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="menufood in menufoods" data-ng-href="#!/menufoods/{{menufood._id}}" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="menufood.name"></h4>
+            <span data-ng-bind="menufood.price | currency"></span>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!menufoods.$resolved || menufoods.length">
+    	No Menufoods yet, why don't you <a href="/#!/menufoods/create">create one</a>?
+    </div>
+</section>
